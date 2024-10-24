@@ -1,0 +1,31 @@
+nav {
+    position: relative;
+    justify-content: start;
+    align-items: center;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: blue;
+    height: auto;
+}
+
+table {
+    width: 90%;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+th, td {
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+h2 {
+    margin-left: 5%;
+    margin-bottom: 0;
+}

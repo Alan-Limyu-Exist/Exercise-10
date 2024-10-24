@@ -1,0 +1,29 @@
+<h2>Add New Person</h2>
+<form (ngSubmit)="addPerson()">
+  <div>
+    <label>First Name:</label>
+    <input type="text" [(ngModel)]="newPerson.name.firstName" name="firstName" required>
+  </div>
+  <div>
+    <label>Last Name:</label>
+    <input type="text" [(ngModel)]="newPerson.name.lastName" name="lastName" required>
+  </div>
+  <div>
+    <label>Middle Name:</label>
+    <input type="text" [(ngModel)]="newPerson.name.middleName" name="middleName">
+  </div>
+  <div>
+    <label>Suffix:</label>
+    <input type="text" [(ngModel)]="newPerson.name.suffix" name="middleName">
+  </div>
+  <div>
+    <label>Title:</label>
+    <input type="text" [(ngModel)]="newPerson.name.title" name="middleName">
+  </div>
+  <div style="flex-direction: row;">
+    <label>Currently Employed:</label>
+    <input type="checkbox" [(ngModel)]="newPerson.currentlyEmployed" name="currentlyEmployed" style="marg">
+  </div>
+  <button type="submit">Add Person</button>
+  <button type="button" (click)="closeDialog()" style="background-color: maroon;">Cancel</button>
+</form>

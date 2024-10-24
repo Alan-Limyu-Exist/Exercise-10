@@ -1,0 +1,46 @@
+<nav>
+    <button (click)="showPeople()">People</button>
+    <button (click)="showRoles()">Roles</button>
+</nav>
+
+<div class="list" *ngIf="currentList === 'people'">
+    <h2>People List</h2>
+    <button (click)="openAddPersonDialog()" style="margin-left: 5%;">Add Person</button>
+    <table>
+        <thead>
+            <tr>
+                <th (click)="sortPeople('id')">ID</th>
+                <th (click)="sortPeople('firstName')">First Name</th>
+                <th (click)="sortPeople('lastName')">Last Name</th>
+                <th (click)="sortPeople('contactInformation.email')">Email</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let person of people">
+                <td>{{ person.id }}</td>
+                <td>{{ person.name.firstName }}</td>
+                <td>{{ person.name.lastName }}</td>
+                <td>{{ person.contactInformation?.email }}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<div *ngIf="currentList === 'roles'">
+    <h2>Roles List</h2>
+    <button (click)="openAddPersonDialog()" style="margin-left: 5%;">Add Role</button>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let role of roles">
+                <td>{{ role.id }}</td>
+                <td>{{ role.name }}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
