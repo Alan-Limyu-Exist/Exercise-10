@@ -1,4 +1,4 @@
-<h2>Add New Person</h2>
+<h2>{{ isEdit ? 'Edit Person' : 'Add New Person' }}</h2>
 <form (ngSubmit)="addPerson()">
   <div>
     <label>First Name:</label>
@@ -24,6 +24,8 @@
     <label>Currently Employed:</label>
     <input type="checkbox" [(ngModel)]="newPerson.currentlyEmployed" name="currentlyEmployed" style="marg">
   </div>
-  <button type="submit">Add Person</button>
+  <button (click)="isEdit ? editPerson() : addPerson()">
+    {{ isEdit ? 'Edit Person' : 'Add Person' }}
+  </button>
   <button type="button" (click)="closeDialog()" style="background-color: maroon;">Cancel</button>
 </form>

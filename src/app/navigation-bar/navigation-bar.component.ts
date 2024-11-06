@@ -76,5 +76,43 @@ export class NavigationBarComponent implements OnInit {
             this.roles.push(result);
           }
         });
-      }
+    }
+
+    openEditPersonDialog(person: Person): void {
+      const dialogRef = this.dialog.open(AddPersonDialogComponent, {
+        data: person
+      });
+    
+      dialogRef.afterClosed().subscribe(result => {
+        if (result) {
+          const index = this.people.findIndex(person => person.id === result.id);
+          if (index !== -1) {
+            this.people[index] = result;
+          }
+        }
+      });
+    }
+    
+    openEditRoleDialog(role: Role): void {
+      const dialogRef = this.dialog.open(AddRoleDialogComponent, {
+        data: role
+      });
+    
+      dialogRef.afterClosed().subscribe(result => {
+        if (result) {
+          const index = this.roles.findIndex(role => role.id === result.id);
+          if (index !== -1) {
+            this.roles[index] = result;
+          }
+        }
+      });
+    }
+
+    deletePerson(uuid: string): void {
+        
+    }
+
+    deleteRole(uuid: string): void {
+        
+    }
 }

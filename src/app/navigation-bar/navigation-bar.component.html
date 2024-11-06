@@ -13,6 +13,7 @@
                 <th (click)="sortPeople('firstName')">First Name</th>
                 <th (click)="sortPeople('lastName')">Last Name</th>
                 <th (click)="sortPeople('contactInformation.email')">Email</th>
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -21,6 +22,10 @@
                 <td>{{ person.name.firstName }}</td>
                 <td>{{ person.name.lastName }}</td>
                 <td>{{ person.contactInformation?.email }}</td>
+                <td>
+                    <button (click)="openEditPersonDialog(person)">Edit</button>
+                    <button (click)="deletePerson(person.uuid)">Delete</button>
+                </td>
             </tr>
         </tbody>
     </table>
@@ -34,12 +39,17 @@
             <tr>
                 <th>ID</th>
                 <th>Name</th>
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
             <tr *ngFor="let role of roles">
                 <td>{{ role.id }}</td>
                 <td>{{ role.name }}</td>
+                <td>
+                    <button (click)="openEditRoleDialog(role)">Edit</button>
+                    <button (click)="deleteRole(role.uuid)">Delete</button>
+                </td>
             </tr>
         </tbody>
     </table>
