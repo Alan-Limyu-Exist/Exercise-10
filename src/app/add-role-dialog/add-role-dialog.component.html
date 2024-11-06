@@ -1,0 +1,9 @@
+<h2>Add New Role</h2>
+<form (ngSubmit)="addRole()">
+  <div>
+    <label>Name:</label>
+    <input type="text" [(ngModel)]="newRole.name" name="name" required>
+  </div>
+  <button type="submit">Add Role</button>
+  <button type="button" (click)="closeDialog()" style="background-color: maroon;">Cancel</button>
+</form>

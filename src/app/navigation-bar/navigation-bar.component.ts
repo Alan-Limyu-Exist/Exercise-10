@@ -6,6 +6,7 @@ import { Person } from '../models/person.model';
 import { Role } from '../models/role.model';
 import { MatDialog } from '@angular/material/dialog';
 import { AddPersonDialogComponent } from '../add-person-dialog/add-person-dialog.component';
+import { AddRoleDialogComponent } from '../add-role-dialog/add-role-dialog.component';
 
 @Component({
     selector: 'app-navigation-bar',
@@ -66,4 +67,14 @@ export class NavigationBarComponent implements OnInit {
         }
       });
     }
+
+    openAddRoleDialog(): void {
+        const dialogRef = this.dialog.open(AddRoleDialogComponent);
+  
+        dialogRef.afterClosed().subscribe(result => {
+          if (result) {
+            this.roles.push(result);
+          }
+        });
+      }
 }
