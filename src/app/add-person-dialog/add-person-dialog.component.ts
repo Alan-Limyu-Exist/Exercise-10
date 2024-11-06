@@ -47,7 +47,14 @@ export class AddPersonDialogComponent {
   }
 
   editPerson(): void {
-    
+    this.personService.updatePerson(this.newPerson).subscribe(
+      (response) => {
+        this.dialogRef.close(response);
+      },
+      (error) => {
+        console.error('Error adding person', error);
+      }
+    );
   }
 
   closeDialog(): void {

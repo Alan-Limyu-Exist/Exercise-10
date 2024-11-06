@@ -36,4 +36,12 @@ export class PersonService {
     return this.http.post<Person[]>(this.apiUrl, person, { headers });
   }
   
+  updatePerson(person: Person): Observable<Person[]> {
+    const headers = new HttpHeaders({
+      Authorization: 'Basic ' + btoa('admin:pass'),
+      'Content-Type': 'application/json'
+    });
+  
+    return this.http.put<Person[]>(this.apiUrl + "/" + person.uuid, person, { headers });
+  }
 }

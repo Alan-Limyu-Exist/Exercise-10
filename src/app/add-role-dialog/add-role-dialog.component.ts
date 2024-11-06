@@ -46,7 +46,14 @@ export class AddRoleDialogComponent {
   }
 
   editRole(): void {
-    
+    this.roleService.updateRole(this.newRole).subscribe(
+      (response) => {
+        this.dialogRef.close(response);
+      },
+      (error) => {
+        console.error('Error adding person', error);
+      }
+    );
   }
 
   closeDialog(): void {

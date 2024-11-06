@@ -79,8 +79,9 @@ export class NavigationBarComponent implements OnInit {
     }
 
     openEditPersonDialog(person: Person): void {
+      const personClone = JSON.parse(JSON.stringify(person));
       const dialogRef = this.dialog.open(AddPersonDialogComponent, {
-        data: person
+        data: personClone
       });
     
       dialogRef.afterClosed().subscribe(result => {
@@ -94,8 +95,9 @@ export class NavigationBarComponent implements OnInit {
     }
     
     openEditRoleDialog(role: Role): void {
+      const roleClone = JSON.parse(JSON.stringify(role));
       const dialogRef = this.dialog.open(AddRoleDialogComponent, {
-        data: role
+        data: roleClone
       });
     
       dialogRef.afterClosed().subscribe(result => {

@@ -28,4 +28,13 @@ export class RoleService {
   
     return this.http.post<Role[]>(this.apiUrl, role, { headers });
   }
+
+  updateRole(role: Role): Observable<Role[]> {
+    const headers = new HttpHeaders({
+      Authorization: 'Basic ' + btoa('admin:pass'),
+      'Content-Type': 'application/json'
+    });
+  
+    return this.http.put<Role[]>(this.apiUrl + "/" + role.uuid, role, { headers });
+  }
 }
